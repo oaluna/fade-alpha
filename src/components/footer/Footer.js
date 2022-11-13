@@ -25,9 +25,9 @@ const FooterCol = [
     link1url: "/",
     link2: "Privacy and Policy",
     link2url: "/",
-    link3: "Publish Ride",
-    link3url: "/publishride",
-    link4: "Book a Ride",
+    link3: "Publish Pool",
+    link3url: "/publishPool",
+    link4: "Book a Pool",
     link4url: "/search",
   },
 ];
@@ -55,7 +55,11 @@ const Footer = () => {
         </div>
       </div>
       <div className="footerCopyright">
-        <h6>Copyright &copy; 2022 by TrustiCar</h6>
+        <img
+          src="https://res.cloudinary.com/dgdnpkfun/image/upload/v1662069198/logo_lq7li3.svg"
+          alt="oscarluna"
+        />{" "}
+        <h6>Copyright &copy; 2022 by Oscar Armando Luna</h6>
       </div>
     </section>
   );

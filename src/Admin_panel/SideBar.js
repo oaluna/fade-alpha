@@ -51,14 +51,14 @@ const SideBar = () => {
             </li>
             <li className="nav-item d-flex align-items-center SidebarMenuItem">
               <IoPeopleOutline className="sidebarMenuIcon" />
-              <Link to="/admin-dashboard/riders" className="nav-link">
+              <Link to="/admin-dashboard/Riders" className="nav-link">
                 Riders
               </Link>
             </li>
             <li className="nav-item d-flex align-items-center SidebarMenuItem">
               <MdOutlineWbIridescent className="sidebarMenuIcon" />
-              <Link to="/admin-dashboard/rides" className="nav-link">
-                Rides
+              <Link to="/admin-dashboard/Pools" className="nav-link">
+                Pools
               </Link>
             </li>
 

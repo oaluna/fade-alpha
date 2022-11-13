@@ -38,22 +38,22 @@
   margin-right: 10px;
   font-size: 18px;
 }
-.SearchBox .search-riders-input {
+.SearchBox .search-Riders-input {
   border: none;
   outline: none;
   background-color: #ebebeb;
 }
-.SearchBox .search-riders-input:focus {
+.SearchBox .search-Riders-input:focus {
   border: none;
 }
 .connectedRiders {
   margin: 0 10px;
 }
-.connectedRiders .singleRider {
+.connectedRiders .singlePoolr {
   padding: 15px 0;
   border-bottom: 1px solid lightgray;
 }
-.connectedRiders .singleRider:hover {
+.connectedRiders .singlePoolr:hover {
   background-color: #ebebeb;
 }
 .connectedRiders h5,

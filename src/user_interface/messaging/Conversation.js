@@ -5,49 +5,47 @@ import { IoLogoIonic } from "react-icons/io5";
 import API from "../../API";
 
 const Conversation = ({ conversation, currentUser, onlineUsers }) => {
-  const [connectRider, setConnectRider] = useState([]);
+  const [connectPoolr, setConnectPoolr] = useState([]);
   const [online, setOnline] = useState(false);
 
   useEffect(() => {
-    const connectRiderId = conversation.members.find(
+    const connectPoolrId = conversation.members.find(
       (member) => member !== currentUser._id
     );
 
-    const getConnectRider = async () => {
-      const { data } = await API.get(
-        "user/" + connectRiderId
-      );
-      setConnectRider(data);
+    const getConnectPoolr = async () => {
+      const { data } = await API.get("user/" + connectPoolrId);
+      setConnectPoolr(data);
     };
-    getConnectRider();
-    localStorage.setItem("connectRider", JSON.stringify(connectRider));
-  }, [currentUser, conversation, connectRider]);
+    getConnectPoolr();
+    localStorage.setItem("connectPoolr", JSON.stringify(connectPoolr));
+  }, [currentUser, conversation, connectPoolr]);
 
   useEffect(() => {
-    onlineUsers.some((user) => user.userId === connectRider._id)
+    onlineUsers.some((user) => user.userId === connectPoolr._id)
       ? setOnline(true)
       : setOnline(false);
-  }, [onlineUsers, connectRider]);
+  }, [onlineUsers, connectPoolr]);
 
   return (
     <>
-      <div className="singleRider row d-flex align-items-center">
+      <div className="singlePoolr row d-flex align-items-center">
         <div className="profilePic col-3">
           <div className="converUser">
             <img
               src={
-                connectRider.picture
-                  ? connectRider.picture
+                connectPoolr.picture
+                  ? connectPoolr.picture
                   : "/images/user-icon.png"
               }
               className="user-icon img-fluid"
-              alt="Rider Profile"
+              alt="Poolr Profile"
             />
             {online ? <IoLogoIonic className="onlineUserIcon" /> : null}
           </div>
         </div>
-        <div className="rider col-9 d-flex flex-row justify-content-between align-items-center">
-          <h5>{connectRider.fullName}</h5>
+        <div className="Poolr col-9 d-flex flex-row justify-content-between align-items-center">
+          <h5>{connectPoolr.fullName}</h5>
           <span>{format(conversation.date)}</span>
         </div>
       </div>

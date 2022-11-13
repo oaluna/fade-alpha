@@ -5,21 +5,21 @@ import axios from "axios";
 import AOS from "aos";
 import API from "../API";
 
-const MyRideRequests = () => {
-  const [requestedRides, setRequestedRides] = useState([]);
+const MyPoolRequests = () => {
+  const [requestedPools, setRequestedPools] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
   const [publisherId, setPublisherId] = useState(user.id);
   const [publisherUser, setPublisherUser] = useState([]);
   const [rejectionReason, setRejectionReason] = useState("");
 
   useEffect(() => {
-    const getRequestRides = async () => {
-      const { data } = await API.get("requestride");
-      data.map((ride) => {
-        setPublisherId(ride.publisherId);
-        setRejectionReason(ride.rejectionReason);
+    const getRequestPools = async () => {
+      const { data } = await API.get("requestPool");
+      data.map((Pool) => {
+        setPublisherId(Pool.publisherId);
+        setRejectionReason(Pool.rejectionReason);
       });
-      setRequestedRides(data);
+      setRequestedPools(data);
     };
     const getPublisher = async () => {
       const { data } = await API.get("user/register");
@@ -27,7 +27,7 @@ const MyRideRequests = () => {
       setPublisherUser(filterUser);
     };
 
-    getRequestRides();
+    getRequestPools();
     getPublisher();
   }, []);
 
@@ -39,17 +39,17 @@ const MyRideRequests = () => {
   return (
     <div className="col-md-9 userProfile-main">
       <div className="container">
-        {requestedRides.map((ride, index) => {
+        {requestedPools.map((Pool, index) => {
           const {
             goingfrom,
             goingto,
-            rideStatus,
+            PoolStatus,
             requestStatus,
             bookingDate,
             passenger,
             bookerId,
             bookerEmail,
-          } = ride;
+          } = Pool;
           return user.email === bookerEmail ? (
             <div
               className="searchCard"
@@ -83,7 +83,7 @@ const MyRideRequests = () => {
                       const { fullName, email } = user;
                       return (
                         <p>
-                          You booked a given ride with <b>{fullName}</b> email{" "}
+                          You booked a given Pool with <b>{fullName}</b> email{" "}
                           <b>{email}</b> with <strong>{passenger}</strong>{" "}
                           passenger {passenger > 1 ? "s" : ""} on Date :{" "}
                           {bookingDate}
@@ -95,13 +95,13 @@ const MyRideRequests = () => {
 
                 {requestStatus === "Rejected" ? (
                   <div>
-                    <span>Ride Publisher Rejection message : </span> <br />
+                    <span>Pool Publisher Rejection message : </span> <br />
                     <h6>{rejectionReason}</h6>
                   </div>
                 ) : null}
                 <div className="my-2 mt-3 d-flex justify-content-between">
                   <button className="btn primaryBtn" disabled>
-                    {rideStatus}
+                    {PoolStatus}
                   </button>
                   <button className="btn primaryBtn" disabled>
                     {requestStatus}
@@ -110,7 +110,7 @@ const MyRideRequests = () => {
               </div>
             </div>
           ) : (
-            <h2>You have not booked any ride yet</h2>
+            <h2>You have not booked any Pool yet</h2>
           );
         })}
       </div>
@@ -118,4 +118,4 @@ const MyRideRequests = () => {
   );
 };
 
-export default MyRideRequests;
+export default MyPoolRequests;

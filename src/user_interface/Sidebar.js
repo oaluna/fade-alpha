@@ -60,20 +60,20 @@ const Sidebar = () => {
             </li>
             <li className="nav-item d-flex align-items-center SidebarMenuItem">
               <IoAddCircleOutline className="sidebarMenuIcon" />
-              <Link to="/user-dashboard/publishride" className="nav-link">
-                Publish Ride
+              <Link to="/user-dashboard/publishPool" className="nav-link">
+                Publish Pool
               </Link>
             </li>
             <li className="nav-item d-flex align-items-center SidebarMenuItem">
               <IoCarSportOutline className="sidebarMenuIcon" />
-              <Link to="/user-dashboard/riderequest" className="nav-link">
-                Request for Ride
+              <Link to="/user-dashboard/Poolrequest" className="nav-link">
+                Request for Pool
               </Link>
             </li>
             <li className="nav-item d-flex align-items-center SidebarMenuItem">
               <VscGitPullRequest className="sidebarMenuIcon" />
-              <Link to="/user-dashboard/my-ride-requests" className="nav-link">
-                My Ride Requests
+              <Link to="/user-dashboard/my-Pool-requests" className="nav-link">
+                My Pool Requests
               </Link>
             </li>
             <li className="nav-item d-flex align-items-center SidebarMenuItem">

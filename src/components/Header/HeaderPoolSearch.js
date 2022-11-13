@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import PassengerDetails from "./PassengerDetails";
 import { FaUser } from "react-icons/fa";
@@ -8,7 +9,7 @@ import { toast } from "react-toastify";
 import AOS from "aos";
 import API from "../../API";
 
-const HeaderRideSearch = () => {
+const HeaderPoolSearch = () => {
   const [passengerNeeded, setPassengerNeeded] = useState(0);
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ const HeaderRideSearch = () => {
     goingTo: "",
     date: "",
   });
-  const [publishRides, setPublishRides] = useState([]);
+  const [publishPools, setPublishPools] = useState([]);
   const history = useHistory();
 
   const plus = () => {
@@ -40,10 +41,10 @@ const HeaderRideSearch = () => {
         formData.goingTo.length > 0 &&
         formData.date.length > 0
       ) {
-        const { data } = await API.get("publishride");
-        // setPublishRides(data);
+        const { data } = await API.get("publishPool");
+        // setPublishPools(data);
         history.push({
-          pathname: "/availablerides",
+          pathname: "/availablePools",
           state: {
             goingFrom: formData.goingFrom,
             goingTo: formData.goingTo,
@@ -62,7 +63,18 @@ const HeaderRideSearch = () => {
 
   return (
     <section data-aos="fade-right" data-aos-duration="1200">
-      <h2>Search for a Ride</h2>
+      <img
+        src="images/fade-logo.svg"
+        alt="logo"
+        style={{
+          width: "100%",
+          maxWidth: "400px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      />
+      <h2>Search for a Pool</h2>
       <form onSubmit={(e) => handleSearch(e)}>
         <div className="mb-3">
           <select
@@ -110,7 +122,7 @@ const HeaderRideSearch = () => {
               value={formData.date}
             />
           </div>
-          <div className="user" onClick={showDropdown}>
+          <div className="user mb-3" onClick={showDropdown}>
             <FaUser className="userIcon" />
             <span>{passengerNeeded}</span>
           </div>
@@ -132,4 +144,4 @@ const HeaderRideSearch = () => {
   );
 };
 
-export default HeaderRideSearch;
+export default HeaderPoolSearch;

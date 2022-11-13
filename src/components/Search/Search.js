@@ -8,7 +8,7 @@ import SearchedCard from "./SearchedCard";
 
 const Search = () => {
   const history = useHistory();
-  const [numberOfAvailableRides, setNumberOfAvailableRides] = useState(0);
+  const [numberOfAvailablePools, setNumberOfAvailablePools] = useState(0);
 
   const [formData, setFormData] = useState({
     goingFrom: history.location.state.goingFrom,
@@ -16,20 +16,20 @@ const Search = () => {
     date: history.location.state.date,
     passengerNeeded: history.location.state.passengerNeeded,
   });
-  const [publishRides, setPublishRides] = useState([]);
+  const [publishPools, setPublishPools] = useState([]);
 
   useEffect(() => {
-    setPublishRides(history.location.state.data);
+    setPublishPools(history.location.state.data);
 
-    // length of avilable rides
-    const rides = publishRides.filter(
+    // length of avilable Pools
+    const Pools = publishPools.filter(
       (pr) =>
         pr.goingfrom === formData.goingFrom && pr.goingto === formData.goingTo
     );
-    setNumberOfAvailableRides(rides.length);
+    setNumberOfAvailablePools(Pools.length);
   }, [
     history.location.state.data,
-    publishRides,
+    publishPools,
     formData.goingFrom,
     formData.goingTo,
   ]);
@@ -52,15 +52,15 @@ const Search = () => {
               </span>
             </div>
           </div>
-          <div className="availableRides">
+          <div className="availablePools">
             <h4>{formData.date}</h4>
             <p>
               {formData.goingFrom} <AiOutlineArrowRight className="arrow" />
               {formData.goingTo}
             </p>
-            <span> {numberOfAvailableRides} rides available</span>
+            <span> {numberOfAvailablePools} Pools available</span>
           </div>
-          {publishRides.map((publishRide, index) => {
+          {publishPools.map((publishPool, index) => {
             const {
               goingfrom,
               goingto,
@@ -70,8 +70,8 @@ const Search = () => {
               status,
               _id,
               passenger,
-            } = publishRide;
-            console.log(publishRide);
+            } = publishPool;
+            console.log(publishPool);
             return (
               goingfrom === formData.goingFrom &&
               goingto === formData.goingTo &&
@@ -84,7 +84,7 @@ const Search = () => {
                   email={email}
                   date={date}
                   status={status}
-                  publishRideId={_id}
+                  publishPoolId={_id}
                   passenger={passenger}
                   formData={formData}
                 />

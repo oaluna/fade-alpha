@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import AOS from "aos";
 import { useHistory } from "react-router-dom";
-import API from '../../API';
+import API from "../../API";
 
 const Register = () => {
   const history = useHistory();
@@ -24,10 +24,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const { data } = await API.post(
-        "user/register",
-        formData
-      );
+      const { data } = await API.post("user/register", formData);
       if (data === "User has already Register...") {
         toast.error(data, { position: "top-center" });
       } else {
@@ -56,7 +53,7 @@ const Register = () => {
       <section className="formContainer">
         <div className="container">
           <div className="Register" data-aos="zoom-in" data-aos-duration="1200">
-            <h2 className="text-center my-5">Register yourself on TrustiCar</h2>
+            <h2 className="text-center my-5">Sign up with Fade today!</h2>
             <form onSubmit={(e) => handleRegister(e)}>
               <div className="mb-4 input-group">
                 <input
@@ -112,8 +109,10 @@ const Register = () => {
                   setFormData({ ...formData, userType: event.target.value });
                 }}
               >
-                <option value="Passenger">Passenger</option>
-                <option value="Driver">Driver</option>
+                <option value="Passenger">Poolr</option>
+                <option value="Driver">
+                  Driver (requires Drivers License verification)
+                </option>
               </select>
 
               <Link to="/login">

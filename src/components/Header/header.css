@@ -7,6 +7,7 @@
   --bs-scroll-height: "100px";
 }
 
+
 .navbarbg {
   background-color: #f1f1f1;
   padding: 10px 25px;
@@ -30,7 +31,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #363bbb;
+  color: #0b635c;
 }
 
 .navbarButtons .btn,
@@ -79,7 +80,7 @@
 }
 
 .navbarButtons .register,
-.publish-rideRow-col1 .btn,
+.publish-PoolRow-col1 .btn,
 .primaryBtn {
   color: white;
   background-color: var(--primary-color);
@@ -88,7 +89,7 @@
 }
 
 .navbarButtons .register:hover,
-.publish-rideRow-col1 .btn:hover,
+.publish-PoolRow-col1 .btn:hover,
 .primaryBtn:hover {
   color: var(--primary-color);
   background-color: #fff;
@@ -97,6 +98,7 @@
 /* header */
 .header {
   margin: 80px 40px;
+  border: none;
 }
 
 .mainRow .mainRowCol1 {

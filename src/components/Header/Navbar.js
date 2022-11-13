@@ -3,6 +3,7 @@ import "./header.css";
 import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import UserMenu from "./UserMenu";
+import FadeIcon from "./fadeIcon";
 
 const Navbar = () => {
   const [show, setShow] = React.useState(false);
@@ -16,7 +17,7 @@ const Navbar = () => {
 
   // to fix the navbar when scrolling down
   const fixedNavbar = () => {
-    if (window.scrollY >= "45") {
+    if (window.scrollY >= "25") {
       setShow(true);
     } else {
       setShow(false);
@@ -35,7 +36,12 @@ const Navbar = () => {
       >
         <div className="container-fluid">
           <Link to={"/"} className="navbar-brand">
-            TrustiCar
+            {/* <img
+              src="images/fadeIcon.svg"
+              alt="logo"
+              style={{ width: "125px", height: "auto" }}
+            /> */}
+            <FadeIcon />
           </Link>
           <button
             className="navbar-toggler"
@@ -52,12 +58,12 @@ const Navbar = () => {
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
               <li className="nav-item">
                 <Link to="/about" className="nav-link" href="#">
-                  About Us
+                  About
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/contact" className="nav-link" href="#">
-                  Contact Us
+                  Contact
                 </Link>
               </li>
               <li className="nav-item">

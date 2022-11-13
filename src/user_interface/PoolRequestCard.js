@@ -5,34 +5,31 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import API from "../API";
 
-const RideRequestCard = ({
+const PoolRequestCard = ({
   id,
   index,
   goingfrom,
   goingto,
-  rideStatus,
+  PoolStatus,
   requestStatus,
   date,
   passenger,
   bookerEmail,
-  rideId,
+  PoolId,
 }) => {
   const [rejectionMessage, setRejectionMessage] = useState("");
 
-  // handle approve ride request
+  // handle approve Pool request
   const handleApprove = async () => {
     try {
-      await API.patch(`publishride/${rideId}`, {
+      await API.patch(`publishPool/${PoolId}`, {
         passenger: passenger - passenger,
       });
-      const { data } = await API.patch(
-        `requestride/${id}`,
-        {
-          requestStatus: "Accepted",
-        }
-      );
+      const { data } = await API.patch(`requestPool/${id}`, {
+        requestStatus: "Accepted",
+      });
       if (data) {
-        toast.success("You have accepted the ride request");
+        toast.success("You have accepted the Pool request");
       } else {
         toast(data);
       }
@@ -41,18 +38,15 @@ const RideRequestCard = ({
     }
   };
 
-  // handle disapprove ride request
+  // handle disapprove Pool request
   const handleDisapprove = async () => {
     try {
-      const { data } = await API.patch(
-        `requestride/${id}`,
-        {
-          requestStatus: "Rejected",
-          rejectionReason: rejectionMessage,
-        }
-      );
+      const { data } = await API.patch(`requestPool/${id}`, {
+        requestStatus: "Rejected",
+        rejectionReason: rejectionMessage,
+      });
       if (data) {
-        alert("You have rejected the ride request");
+        alert("You have rejected the Pool request");
       } else {
         alert(data);
       }
@@ -62,7 +56,7 @@ const RideRequestCard = ({
   };
 
   useEffect(() => {
-    console.log(rideId);
+    console.log(PoolId);
   }, []);
 
   return (
@@ -70,7 +64,7 @@ const RideRequestCard = ({
       {requestStatus === "Pending" ? (
         <div className="card text-center my-5" key={index}>
           <div className="card-header" style={{ textAlign: "left" }}>
-            Booking Ride Request from {goingfrom} to {goingto}
+            Booking Pool Request from {goingfrom} to {goingto}
           </div>
           <div className="card-body">
             <h5 className="card-title">
@@ -78,7 +72,7 @@ const RideRequestCard = ({
             </h5>
             <p className="card-text">
               User with email <b> {bookerEmail} </b> has requested to book your{" "}
-              <b>{rideStatus}</b> ride with <b>{passenger}</b> passenger
+              <b>{PoolStatus}</b> Pool with <b>{passenger}</b> passenger
               {passenger > 1 ? "s" : ""} on {date}, you can either Approve or
               Disapprove
             </p>
@@ -121,7 +115,7 @@ const RideRequestCard = ({
                     <textarea
                       class="form-control"
                       rows="3"
-                      placeholder="Tell the Request sender why you are rejected his ride request "
+                      placeholder="Tell the Request sender why you are rejected his Pool request "
                       onChange={(e) => setRejectionMessage(e.target.value)}
                       value={rejectionMessage}
                     ></textarea>
@@ -153,4 +147,4 @@ const RideRequestCard = ({
   );
 };
 
-export default RideRequestCard;
+export default PoolRequestCard;

@@ -1,11 +1,11 @@
 import React from "react";
 import { FaAngleDoubleDown } from "react-icons/fa";
 
-const PopularRide = ({ GoingFrom, GoingTo }) => {
+const PopularPool = ({ GoingFrom, GoingTo }) => {
   return (
-    <div className="col-12 col-sm-6 col-md-6 col-lg-3  popularRidesCol">
+    <div className="col-12 col-sm-6 col-md-6 col-lg-3  popularPoolsCol">
       <div
-        className="popularRidesCircle"
+        className="popularPoolsCircle"
         data-aos="zoom-out"
         data-aos-duration="1200"
       >
@@ -17,4 +17,4 @@ const PopularRide = ({ GoingFrom, GoingTo }) => {
   );
 };
 
-export default PopularRide;
+export default PopularPool;

@@ -14,7 +14,7 @@ const Messaging = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const scrollRef = useRef();
-  const [ConnectedRider, setConnectedRider] = useState([]);
+  const [ConnectedPoolr, setConnectedPoolr] = useState([]);
   let socket = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
@@ -55,9 +55,7 @@ const Messaging = () => {
 
   useEffect(() => {
     const getConversations = async () => {
-      const { data } = await API.get(
-        `conversations/${user._id}`
-      );
+      const { data } = await API.get(`conversations/${user._id}`);
       setConversations(data);
     };
     getConversations();
@@ -65,9 +63,7 @@ const Messaging = () => {
 
   useEffect(() => {
     const getMessages = async () => {
-      const { data } = await API.get(
-        `messages/${currentChat?._id}`
-      );
+      const { data } = await API.get(`messages/${currentChat?._id}`);
       setMessages(data);
     };
     getMessages();
@@ -97,10 +93,7 @@ const Messaging = () => {
       });
 
       try {
-        const { data } = await API.post(
-          "messages",
-          message
-        );
+        const { data } = await API.post("messages", message);
         setMessages([...messages, data]);
         setNewMessage("");
       } catch (err) {
@@ -126,7 +119,7 @@ const Messaging = () => {
               <input
                 type="text"
                 placeholder="Search messages"
-                className="search-riders-input"
+                className="search-Riders-input"
               />
             </div>
             <div className="connectedRiders">
@@ -135,8 +128,8 @@ const Messaging = () => {
                   <div
                     onClick={() => {
                       setCurrentChat(conversation);
-                      setConnectedRider(
-                        JSON.parse(localStorage.getItem("connectRider"))
+                      setConnectedPoolr(
+                        JSON.parse(localStorage.getItem("connectPoolr"))
                       );
                     }}
                     key={index}
@@ -158,11 +151,11 @@ const Messaging = () => {
                   <span className="topBar-heading">
                     <img
                       src="/images/user-icon.png"
-                      alt="Rider profile"
+                      alt="Poolr profile"
                       className="user-icon img-fluid"
                     />
                     {/* Message receiver Name */}
-                    {ConnectedRider.fullName}
+                    {ConnectedPoolr.fullName}
                   </span>
                 </div>
                 <div className="messagesContainer">
@@ -173,7 +166,7 @@ const Messaging = () => {
                           message={message}
                           ownMessage={message.sender === user._id}
                           OwnUser={user}
-                          ConnectedRider={ConnectedRider}
+                          ConnectedPoolr={ConnectedPoolr}
                         />
                       </div>
                     );

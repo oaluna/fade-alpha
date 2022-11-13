@@ -2,7 +2,7 @@ import React from "react";
 // import { FaRegUser } from "react-icons/fa";
 import "./Admin_panel.css";
 
-const RideStatisticsApi = ({
+const PoolStatisticsApi = ({
   title,
   value,
   cardIconbg,
@@ -37,4 +37,4 @@ const RideStatisticsApi = ({
   );
 };
 
-export default RideStatisticsApi;
+export default PoolStatisticsApi;

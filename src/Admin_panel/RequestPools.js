@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { toast } from "react-toastify";
 import API from "../API";
 
-const RequestRides = ({
+const RequestPools = ({
   id,
   goingfrom,
   goingto,
@@ -16,10 +16,7 @@ const RequestRides = ({
   const handleApprove = async (id) => {
     const status = "Active";
     try {
-      const { data } = await API.patch(
-        `publishride/${id}`,
-        status
-      );
+      const { data } = await API.patch(`publishPool/${id}`, status);
       toast.info(data);
     } catch (err) {
       console.log(err);
@@ -28,9 +25,7 @@ const RequestRides = ({
 
   const handleDisapprove = async () => {
     try {
-      const { data } = await API.delete(
-        `publishride/${id}`
-      );
+      const { data } = await API.delete(`publishPool/${id}`);
       toast.info(data);
     } catch (err) {
       console.log(err);
@@ -39,7 +34,7 @@ const RequestRides = ({
   return (
     <div className="card text-center my-5" key={id}>
       <div className="card-header" style={{ textAlign: "left" }}>
-        New Ride Publish Request
+        New Pool Publish Request
       </div>
       <div className="card-body">
         <h5 className="card-title">
@@ -47,7 +42,7 @@ const RequestRides = ({
         </h5>
         <p className="card-text">
           User <span>{name}</span> email <b>{email}"</b> has request to publish
-          ride from {goingfrom} to {goingto} with need of <b>{passenger}</b>{" "}
+          Pool from {goingfrom} to {goingto} with need of <b>{passenger}</b>{" "}
           passenger on {date}
         </p>
         <div className="d-flex justify-content-between">
@@ -68,4 +63,4 @@ const RequestRides = ({
   );
 };
 
-export default RequestRides;
+export default RequestPools;

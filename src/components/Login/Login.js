@@ -24,16 +24,13 @@ const Login = () => {
     e.preventDefault();
     try {
       //Wrong way
-      const { data } = await API.post(
-        "user/login",
-        formData
-      );
+      const { data } = await API.post("user/login", formData);
       if (!data.token && !data.user) {
         toast.error(data, { position: "top-center" });
       } else {
         localStorage.setItem("authToken", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
-        if (data.user.email === "waliullah@trusticar.com") {
+        if (data.user.email === "waliullah@Fade.com") {
           history.push("/admin-dashboard");
         } else {
           history.push("/user-dashboard");

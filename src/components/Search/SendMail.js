@@ -4,35 +4,32 @@ import Navbar from "../Header/Navbar";
 import "./search.css";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import API from '../../API';
+import API from "../../API";
 
-const BookingRide = () => {
+const BookingPool = () => {
   const history = useHistory();
 
   const [emailSender, setEmailSender] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
-  const [ridePublisher, setRidePublisher] = useState(history.location.state);
+  const [PoolPublisher, setPoolPublisher] = useState(history.location.state);
 
   const [form, setForm] = useState({
     from: emailSender.email,
-    to: ridePublisher.email,
-    subject: "Booking a Ride",
-    message: `Hi ${ridePublisher.name}, I would like to book a ride that you have published from ${ridePublisher.goingfrom} to ${ridePublisher.goingto} on ${ridePublisher.date}.`,
+    to: PoolPublisher.email,
+    subject: "Booking a Pool",
+    message: `Hi ${PoolPublisher.name}, I would like to book a Pool that you have published from ${PoolPublisher.goingfrom} to ${PoolPublisher.goingto} on ${PoolPublisher.date}.`,
   });
 
   const HandleSendEmail = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await API.post(
-        "user/send-mail",
-        {
-          //   subject: form.subject,
-          text: form.message,
-          sender: form.from,
-          receiver: form.to,
-        }
-      );
+      const { data } = await API.post("user/send-mail", {
+        //   subject: form.subject,
+        text: form.message,
+        sender: form.from,
+        receiver: form.to,
+      });
       toast.success(data);
     } catch (err) {
       console.log(err);
@@ -46,10 +43,10 @@ const BookingRide = () => {
         <div className="container">
           <div className="contact">
             <div className=" contactCol1">
-              <h1>Connect with Ride Publisher</h1>
+              <h1>Connect with Pool Publisher</h1>
               <p>
-                Send a message to Ride publisher to let him know you are booking
-                his ride.
+                Send a message to Pool publisher to let him know you are booking
+                his Pool.
               </p>
             </div>
             <div className=" contactCol2">
@@ -120,4 +117,4 @@ const BookingRide = () => {
   );
 };
 
-export default BookingRide;
+export default BookingPool;

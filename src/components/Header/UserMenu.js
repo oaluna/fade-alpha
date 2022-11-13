@@ -19,7 +19,7 @@ const UserMenu = ({ user }) => {
     localStorage.removeItem("user");
     window.location.reload();
   };
-  if (email === "waliullah@trusticar.com" && userName === "admin") {
+  if (email === "waliullah@Fade.com" && userName === "admin") {
     return (
       <section style={{ width: "350px", textAlign: "right" }}>
         <Link to="/admin-dashboard">
@@ -54,14 +54,14 @@ const UserMenu = ({ user }) => {
           </li>
           <li className="my-2 d-flex align-items-center userMenuRow">
             <IoPeopleOutline className="userMenuIcon" />
-            <Link to="/admin-dashboard/riders" className="dropdown-item">
+            <Link to="/admin-dashboard/Riders" className="dropdown-item">
               Riders <IoReturnUpForwardOutline className="mx-3" />
             </Link>
           </li>
           <li className="my-2 d-flex align-items-center userMenuRow">
             <MdOutlineWbIridescent className="userMenuIcon" />
-            <Link to="/admin-dashboard/rides" className="dropdown-item">
-              Rides <IoReturnUpForwardOutline className="mx-3" />
+            <Link to="/admin-dashboard/Pools" className="dropdown-item">
+              Pools <IoReturnUpForwardOutline className="mx-3" />
             </Link>
           </li>
           <li className="my-2 d-flex align-items-center userMenuRow">
@@ -113,14 +113,14 @@ const UserMenu = ({ user }) => {
           </li>
           <li className="my-2 d-flex align-items-center userMenuRow">
             <IoAddCircleOutline className="userMenuIcon" />
-            <Link to="/user-dashboard/publishride" className="dropdown-item">
-              Publish Ride <IoReturnUpForwardOutline className="mx-3" />
+            <Link to="/user-dashboard/publishPool" className="dropdown-item">
+              Publish Pool <IoReturnUpForwardOutline className="mx-3" />
             </Link>
           </li>
           <li className="my-2 d-flex align-items-center userMenuRow">
             <IoCarSportOutline className="userMenuIcon" />
-            <Link to="/user-dashboard/riderequest" className="dropdown-item">
-              Request for a Ride <IoReturnUpForwardOutline className="mx-3" />
+            <Link to="/user-dashboard/Poolrequest" className="dropdown-item">
+              Request for a Pool <IoReturnUpForwardOutline className="mx-3" />
             </Link>
           </li>
           <li className="my-2 d-flex align-items-center userMenuRow">

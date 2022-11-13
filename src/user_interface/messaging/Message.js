@@ -1,7 +1,7 @@
 import React from "react";
 import { format } from "timeago.js";
 
-const Message = ({ message, ownMessage, OwnUser, ConnectedRider }) => {
+const Message = ({ message, ownMessage, OwnUser, ConnectedPoolr }) => {
   return (
     <>
       <div className="messagesList">
@@ -27,7 +27,7 @@ const Message = ({ message, ownMessage, OwnUser, ConnectedRider }) => {
           </div>
           <div className="messager-details d-flex flex-row justify-content-between">
             <div className="messagerName">
-              {ownMessage ? OwnUser.fullName : ConnectedRider.fullName}
+              {ownMessage ? OwnUser.fullName : ConnectedPoolr.fullName}
             </div>
             <div className="messageDate">{format(message.date)}</div>
           </div>

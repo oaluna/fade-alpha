@@ -6,7 +6,7 @@ const test2 = () => {
       <div
         id="carouselExampleControls"
         className="carousel slide"
-        data-bs-ride="carousel"
+        data-bs-Pool="carousel"
       >
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -18,7 +18,7 @@ const test2 = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="images/publishRide.svg"
+              src="images/publishPool.svg"
               className="d-block w-100 img-fluid"
               alt="..."
             />

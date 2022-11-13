@@ -16,7 +16,7 @@ const UserCard = ({ fullName, email, userType, date }) => {
             <h5 className="card-title">{fullName}</h5>
             <p className="card-text">{email}</p>
             <p className="card-text">
-              {`User is a ${userType} in TrustiCar since ${date}`}
+              {`User is a ${userType} in Fade since ${date}`}
             </p>
 
             <p className="card-text">

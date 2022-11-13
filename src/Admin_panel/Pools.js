@@ -3,25 +3,25 @@ import { useEffect, useState } from "react";
 import SearchedCard from "../components/Search/SearchedCard";
 import API from "../API";
 
-const Rides = () => {
-  const [rides, setRides] = useState([]);
+const Pools = () => {
+  const [Pools, setPools] = useState([]);
   useEffect(() => {
-    const getPublishRides = async () => {
+    const getPublishPools = async () => {
       try {
-        const { data } = await API.get("publishride");
-        setRides(data);
+        const { data } = await API.get("publishPool");
+        setPools(data);
       } catch (err) {
         console.log(err);
       }
     };
-    getPublishRides();
+    getPublishPools();
   }, []);
   return (
     <div className="col-md-9 userProfile-main">
       <div className="container">
-        <h2>Total Rides</h2>
-        {rides.map((ride, index) => {
-          const { goingfrom, goingto, date, name } = ride;
+        <h2>Total Pools</h2>
+        {Pools.map((Pool, index) => {
+          const { goingfrom, goingto, date, name } = Pool;
           return (
             <SearchedCard
               goingfrom={goingfrom}
@@ -36,4 +36,4 @@ const Rides = () => {
   );
 };
 
-export default Rides;
+export default Pools;

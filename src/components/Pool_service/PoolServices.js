@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./rideServices.css";
+import "./poolServices.css";
 import servicesApi from "./serviceApi";
 import AOS from "aos";
 
-const RideServices = () => {
+const PoolServices = () => {
   const [services, setServices] = useState(servicesApi);
   return (
     <>
-      <section className="RideServiceContainer">
-        <div className="ride-services container">
-          <div className="row RideServicesRow">
+      <section className="PoolServiceContainer">
+        <div className="Pool-services container">
+          <div className="row PoolServicesRow">
             {services.map((service, index) => {
               const { icon, heading, text, linkTo } = service;
               return (
                 <div
-                  className="col-12 col-md-4 RideServicesRowCol"
+                  className="col-12 col-md-4 PoolServicesRowCol"
                   key={index}
                   data-aos="zoom-in"
                   data-aos-duration="1700"
@@ -35,4 +35,4 @@ const RideServices = () => {
   );
 };
 
-export default RideServices;
+export default PoolServices;

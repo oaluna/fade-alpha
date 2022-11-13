@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
-import "../../style/publishRideForm.css";
+import "../../style/publishPoolForm.css";
 import { toast } from "react-toastify";
-import API from '../../API';
+import API from "../../API";
 
-const PulishRideFormCard = () => {
+const PulishPoolFormCard = () => {
   const [loginUser, setLoginUser] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
@@ -33,12 +33,12 @@ const PulishRideFormCard = () => {
     }
   };
 
-  // when someone click on publish ride button
-  const publishRideHandle = async (e) => {
+  // when someone click on publish Pool button
+  const publishPoolHandle = async (e) => {
     e.preventDefault();
     // axios post request
     try {
-      const { data } = await API.post("publishride", {
+      const { data } = await API.post("publishPool", {
         goingfrom: goingfrom,
         goingto: goingto,
         name: name,
@@ -49,7 +49,7 @@ const PulishRideFormCard = () => {
         date: date,
       });
       if (data) {
-        toast.success("Your Ride published successfully...");
+        toast.success("Your Pool published successfully...");
       }
     } catch (err) {
       console.log(err);
@@ -58,8 +58,8 @@ const PulishRideFormCard = () => {
 
   return (
     <div data-aos="fade-left" data-aos-duration="1200">
-      <h1 className="text-center my-5">Publish Your Ride</h1>
-      <form onSubmit={(e) => publishRideHandle(e)}>
+      <h1 className="text-center my-5">Publish Your Pool</h1>
+      <form onSubmit={(e) => publishPoolHandle(e)}>
         <div className="mb-4 input-group">
           <input
             type="text"
@@ -113,13 +113,13 @@ const PulishRideFormCard = () => {
           />
         </div>
         <label htmlFor="status" className="">
-          The Ride status will be Inactive untill it doesn't Approve from Admin
+          Your Pool's status must be approved by an Admin.
         </label>
         <div className="mb-4 input-group">
           <select
             type="text"
             className="form-control"
-            placeholder="Select Ride status..."
+            placeholder="Select Pool status..."
             name="select"
             disabled
             onChange={(e) => setStatus(e.target.value)}
@@ -146,11 +146,11 @@ const PulishRideFormCard = () => {
           </div>
         </div>
         <button type="submit" className="btn btn-primary primaryBtn">
-          Publish Ride
+          Publish Pool
         </button>
       </form>
     </div>
   );
 };
 
-export default PulishRideFormCard;
+export default PulishPoolFormCard;

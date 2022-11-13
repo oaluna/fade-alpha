@@ -1,13 +1,13 @@
-.publish-ride {
+.publish-Pool {
   padding: 50px 0;
   margin: 50px 0;
 }
 
-.publish-rideRow,
-.publish-rideRow-col1 {
+.publish-PoolRow,
+.publish-PoolRow-col1 {
   padding: 0 30px;
 }
-.publish-rideRow-col1,
+.publish-PoolRow-col1,
 h2 {
   font-weight: 500;
 }

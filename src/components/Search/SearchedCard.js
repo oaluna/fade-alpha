@@ -14,7 +14,7 @@ const SearchedCard = ({
   date,
   email,
   status,
-  publishRideId,
+  publishPoolId,
   passenger,
   formData,
 }) => {
@@ -23,11 +23,11 @@ const SearchedCard = ({
 
   const handleBook = () => {
     if (!user) {
-      toast.info("Please Login to Book a Ride", { position: "top-center" });
+      toast.info("Please Login to Book a Pool", { position: "top-center" });
       history.push("/login");
     } else {
       history.push({
-        pathname: "/availablerides/book",
+        pathname: "/availablePools/book",
         state: {
           goingfrom,
           goingto,
@@ -35,7 +35,7 @@ const SearchedCard = ({
           date,
           email,
           status,
-          publishRideId,
+          publishPoolId,
           formData,
         },
       });
@@ -56,7 +56,7 @@ const SearchedCard = ({
     >
       <p className="text-center">
         <strong style={{ color: "#4F56FF" }}>{passenger}</strong> Passenger
-        {passenger > 1 ? "s" : ""} Needed for ride
+        {passenger > 1 ? "s" : ""} Needed for Pool
       </p>
       <div className="searchCard-content row">
         <div className="searchCard-content-col col-sm-2 col-md-2">
@@ -75,7 +75,7 @@ const SearchedCard = ({
             {goingto}
           </h5>
         </div>
-        <p className="price col-sm-2 col-md-2">800 pkr</p>
+        <p className="price col-sm-2 col-md-2">TBD</p>
       </div>
 
       <div className="d-flex justify-content-between align-items-end">

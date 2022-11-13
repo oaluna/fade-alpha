@@ -5,23 +5,23 @@ const places = [
   },
   {
     id: 2,
-    location: "Peshawar",
+    location: "Daly City",
   },
   {
     id: 3,
-    location: "Islamabad",
+    location: "San Francisco",
   },
   {
     id: 4,
-    location: "Lahore",
+    location: "San Mateo",
   },
   {
     id: 5,
-    location: "Abbottabad",
+    location: "Livermore",
   },
   {
     id: 6,
-    location: "Battagram",
+    location: "Concord",
   },
 ];
 

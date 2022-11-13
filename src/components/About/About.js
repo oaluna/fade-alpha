@@ -1,42 +1,41 @@
-import React from 'react';
-import './about.css';
+import React from "react";
+import "./about.css";
 
 const About = () => {
   return (
     <section className="aboutUs">
       <div className="cover"></div>
       <div className="container">
-        <h1 className="text-center">About Us !</h1>
+        <h1 className="text-center">About Us</h1>
         <h3>
-          Welcome To <strong>TrustiCar</strong>
+          Welcome To <strong>Fade</strong>
         </h3>
         <p>
-          <strong>TrustiCar</strong> is a Professional Ride sharing Platform.
-          Here we will provide you the best riding service in which you can ride
-          a car with passenger or you can book a seat in specific ride with
-          speicific person of your choice, which you will like very much. <br />{' '}
-          <br />
-          We're dedicated to providing you the best of Ride sharing service,
-          with a focus on dependability and safety. Ride sharing with each
-          other. We're working to turn our passion for Ride sharing into a
-          booming online website. We hope you enjoy our Ride sharing service as
-          much as we enjoy offering them to you.
+          <strong>We are a carpool-oriented Pool-sharing application.</strong>
+          We aim to reduce users' daily travel cost and time by encouraging a
+          regular commitment to carpooling. You can have someone take you to
+          work every day, or have someone tag along so you can get on that
+          carpool lane, and save all that time wasted sitting in rush hour
+          traffic. <br /> <br />
+          We understand that safety is of upmost importance when it comes to
+          Pool-sharing. That is why we encourage drivers building trusting,
+          professional relationships with their Riders, and vice-versa.
         </p>
-        <h5>Our key Numbers</h5>
+        <h5>How it Works</h5>
         <ul>
-          <li>Over Thousand members</li>
-          <li>10 cities in Pakistan</li>
-          <li>
-            Thousand of kilometers shared by community since TrustiCar creation
-          </li>
+          <li>Enter your Itinerary</li>
+          <li>Get matched with the closest matching route</li>
+          <li>Enjoy a traffic congestion-free life.</li>
         </ul>
         <p>
-          We will keep posting more important posts on the Website for all of
-          you about our service and new updates. Please give your support and
-          love.
+          This app is still in the development phase, so stay tuned with more
+          updates as we prepare a release candidate!
         </p>
-        <p style={{ fontWeight: 'bold', textAlign: 'center' }}>
-          Thanks For Visiting Our Site
+        <p
+          className="my-5 p-5"
+          style={{ fontWeight: "bold", textAlign: "center" }}
+        >
+          <img src="images/fade-logo.svg" alt="logo" />
           <br />
           <br />
           <span className="lastLine">Have a nice day !</span>

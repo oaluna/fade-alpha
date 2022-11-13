@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import RideRequestCard from "./RideRequestCard";
+import PoolRequestCard from "./PoolRequestCard";
 import AOS from "aos";
 import API from "../API";
 
 const UserDashboard = () => {
-  const [userPublishride, setUserPublishRide] = useState([]);
-  const [requestedRides, setRequestedRides] = useState([]);
+  const [userPublishPool, setUserPublishPool] = useState([]);
+  const [requestedPools, setRequestedPools] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
   const userEmail = user.email;
 
@@ -16,21 +16,20 @@ const UserDashboard = () => {
         token: localStorage.getItem("authToken"),
       },
     });
-    const getUserPublishRide = async () => {
-      const { data } = await API.get("publishride");
-      const userPublishRides = data.filter((ride) => {
-        return ride.email === userEmail;
+    const getUserPublishPool = async () => {
+      const { data } = await API.get("publishPool");
+      const userPublishPools = data.filter((Pool) => {
+        return Pool.email === userEmail;
       });
-      setUserPublishRide(userPublishRides);
+      setUserPublishPool(userPublishPools);
     };
 
-    const getRequestRides = async () => {
-      const { data } = await API.get("requestride");
-      setRequestedRides(data);
+    const getRequestPools = async () => {
+      const { data } = await API.get("requestPool");
+      setRequestedPools(data);
     };
-    getUserPublishRide();
-    getRequestRides();
-
+    getUserPublishPool();
+    getRequestPools();
   }, [userEmail]);
 
   useEffect(() => {
@@ -40,11 +39,11 @@ const UserDashboard = () => {
   return (
     <div className="col-md-9 userProfile-main">
       <div className="container">
-        <h2 className="text-center mb-5">Your Rides</h2>
-        {/* {console.log(userPublishride)} */}
+        <h2 className="text-center mb-5">Your Pools</h2>
+        {/* {console.log(userPublishPool)} */}
         <div className="row mb-5">
-          {userPublishride.map((ride, index) => {
-            const { goingfrom, goingto, date } = ride;
+          {userPublishPool.map((Pool, index) => {
+            const { goingfrom, goingto, date } = Pool;
             return (
               <div
                 className="card border-success mb-3 me-3 col-5"
@@ -69,27 +68,27 @@ const UserDashboard = () => {
           })}
         </div>
       </div>
-      {requestedRides.map((ride, index) => {
+      {requestedPools.map((Pool, index) => {
         const {
           _id,
-          rideId,
+          PoolId,
           goingfrom,
           goingto,
-          rideStatus,
+          PoolStatus,
           requestStatus,
           date,
           passenger,
           publisherId,
           bookerEmail,
-        } = ride;
+        } = Pool;
         return user._id === publisherId ? (
-          <RideRequestCard
+          <PoolRequestCard
             key={index}
             id={_id}
-            rideId={rideId}
+            PoolId={PoolId}
             goingfrom={goingfrom}
             goingto={goingto}
-            rideStatus={rideStatus}
+            PoolStatus={PoolStatus}
             requestStatus={requestStatus}
             date={date}
             passenger={passenger}

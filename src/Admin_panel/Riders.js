@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import API from "../API";
 
 const Riders = () => {
-  const [riders, setRiders] = useState([]);
+  const [Riders, setRiders] = useState([]);
   const [search, setSearch] = useState("");
   const [searhUser, setSearhUser] = useState([]);
 
@@ -23,7 +23,7 @@ const Riders = () => {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    const filterUser = riders.filter((user) => user.fullName === search);
+    const filterUser = Riders.filter((user) => user.fullName === search);
     console.log(filterUser);
     if (filterUser.length === 0) {
       toast.error("No user found");
@@ -41,7 +41,7 @@ const Riders = () => {
               type="text"
               className="form-control"
               id="Search"
-              placeholder="Search for Rider / User..."
+              placeholder="Search for Poolr / User..."
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
@@ -68,7 +68,7 @@ const Riders = () => {
             })}
           </div>
           <div className="col-md-5 mx-auto">
-            {riders.map((driver, index) => {
+            {Riders.map((driver, index) => {
               const { fullName, email } = driver;
               return (
                 <div className="card mb-4">

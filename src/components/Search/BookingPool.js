@@ -7,11 +7,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import { toast } from "react-toastify";
-import API from '../../API';
+import API from "../../API";
 
-const BookingRide = () => {
+const BookingPool = () => {
   const history = useHistory();
-  const [rideDetails, setRideDetails] = useState(history.location.state);
+  const [PoolDetails, setPoolDetails] = useState(history.location.state);
   const [passenger, setPassenger] = useState(
     history.location.state.formData.passengerNeeded
   );
@@ -20,7 +20,7 @@ const BookingRide = () => {
     const getPublisherDetails = async () => {
       const { data } = await API.get("user/register");
       data.filter((user) => {
-        if (user.email === rideDetails.email) {
+        if (user.email === PoolDetails.email) {
           setPublisherId(user._id);
         }
       });
@@ -35,32 +35,32 @@ const BookingRide = () => {
   const [publisherId, setPublisherId] = useState("");
 
   const [formData, setFormData] = useState({
-    goingfrom: rideDetails.goingfrom,
-    goingto: rideDetails.goingto,
+    goingfrom: PoolDetails.goingfrom,
+    goingto: PoolDetails.goingto,
     passenger: passenger,
-    rideStatus: rideDetails.status,
-    rideDate: rideDetails.date,
+    PoolStatus: PoolDetails.status,
+    PoolDate: PoolDetails.date,
     requestStatus: "Pending",
     bookerEmail: emailSender.email,
     // publisherId: publisherUserId,
     bookerId: emailSender._id,
-    rideId: rideDetails.publishRideId,
+    PoolId: PoolDetails.publishPoolId,
   });
 
-  const handleRideBooking = async (e) => {
+  const handlePoolBooking = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await API.post("requestride", {
+      const { data } = await API.post("requestPool", {
         goingfrom: formData.goingfrom,
         goingto: formData.goingto,
         passenger: formData.passenger,
-        rideStatus: formData.rideStatus,
-        bookingDate: formData.rideDate,
+        PoolStatus: formData.PoolStatus,
+        bookingDate: formData.PoolDate,
         requestStatus: formData.requestStatus,
         bookerEmail: formData.bookerEmail,
         publisherId: publisherId,
         bookerId: formData.bookerId,
-        rideId: formData.rideId,
+        PoolId: formData.PoolId,
       });
       addBookerToConversation();
       toast.success(data);
@@ -84,18 +84,18 @@ const BookingRide = () => {
         <div className="container">
           <div className="contact">
             <div className=" contactCol1">
-              <h1>Book your Ride</h1>
+              <h1>Subscribe to Pool</h1>
               <p>
-                Send a Request to Ride publisher to let him know you are booking
+                Send a request to this Pool's driver to subscribe to this route.
               </p>
             </div>
             <div className=" contactCol2">
               {/* Form */}
-              <form onSubmit={(e) => handleRideBooking(e)}>
+              <form onSubmit={(e) => handlePoolBooking(e)}>
                 <div className="row inputs">
                   <div className="col-12 col-lg-6 mb-4">
                     <label htmlFor="publisher email" className="form-label">
-                      Going From
+                      From:
                     </label>
                     <input
                       type="text"
@@ -109,7 +109,7 @@ const BookingRide = () => {
                   </div>
                   <div className="col-12 col-lg-6 mb-4">
                     <label htmlFor="sender email" className="form-label">
-                      Going To
+                      To:
                     </label>
                     <input
                       type="text"
@@ -135,30 +135,30 @@ const BookingRide = () => {
                   </div>
                   <div className="col-12 col-lg-6 mb-4">
                     <label htmlFor="sender email" className="form-label">
-                      Ride Status
+                      Pool Status
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      name="rideStatus"
+                      name="PoolStatus"
                       onChange={(e) =>
-                        setFormData({ ...formData, rideStatus: e.target.value })
+                        setFormData({ ...formData, PoolStatus: e.target.value })
                       }
-                      value={formData.rideStatus}
+                      value={formData.PoolStatus}
                     />
                   </div>
                   <div className="col-12 col-lg-12 mb-4">
                     <label htmlFor="Subject" className="form-label">
-                      Ride booking Date
+                      Pool booking Date
                     </label>
                     <input
                       type="text"
                       className="form-control"
                       name="bookingDate"
                       onChange={(e) =>
-                        setFormData({ ...formData, rideDate: e.target.value })
+                        setFormData({ ...formData, PoolDate: e.target.value })
                       }
-                      value={formData.rideDate}
+                      value={formData.PoolDate}
                     />
                   </div>
                   <div className="col-12 col-lg-12 mb-4">
@@ -181,7 +181,7 @@ const BookingRide = () => {
                   </div>
                   <div className="col-12 col-lg-4 mb-4">
                     <label htmlFor="publisher id" className="form-label">
-                      Ride publisher ID
+                      Pool publisher ID
                     </label>
                     <input
                       type="text"
@@ -194,7 +194,7 @@ const BookingRide = () => {
                   </div>
                   <div className="col-12 col-lg-4 mb-4">
                     <label htmlFor="publisher id" className="form-label">
-                      Ride Booker ID
+                      Pool Booker ID
                     </label>
                     <input
                       type="text"
@@ -207,14 +207,14 @@ const BookingRide = () => {
                   </div>
                   <div className="col-12 col-lg-4 mb-4">
                     <label htmlFor="publisher id" className="form-label">
-                      Ride ID
+                      Pool ID
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      name="rideId"
+                      name="PoolId"
                       onChange={(e) => console.log("Can't change id")}
-                      value={formData.rideId}
+                      value={formData.PoolId}
                       disabled
                     />
                   </div>
@@ -224,7 +224,7 @@ const BookingRide = () => {
                       type="submit"
                       className="btn btn-primary primaryBtn"
                     >
-                      Book Ride
+                      Book Pool
                     </button>
                     <button
                       type="submit"
@@ -249,4 +249,4 @@ const BookingRide = () => {
   );
 };
 
-export default BookingRide;
+export default BookingPool;
