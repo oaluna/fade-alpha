@@ -11,14 +11,14 @@ const About = () => {
           Welcome To <strong>Fade</strong>
         </h3>
         <p>
-          <strong>We are a carpool-oriented Pool-sharing application.</strong>
+          <strong>We are a carpool-oriented ride-sharing application.</strong>
           We aim to reduce users' daily travel cost and time by encouraging a
           regular commitment to carpooling. You can have someone take you to
           work every day, or have someone tag along so you can get on that
           carpool lane, and save all that time wasted sitting in rush hour
           traffic. <br /> <br />
           We understand that safety is of upmost importance when it comes to
-          Pool-sharing. That is why we encourage drivers building trusting,
+          ride-sharing. That is why we encourage drivers building trusting,
           professional relationships with their Riders, and vice-versa.
         </p>
         <h5>How it Works</h5>
