@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import {
   FaFacebook,
@@ -32,6 +33,19 @@ const FooterCol = [
   },
 ];
 
+const downloadLinks = [
+  {
+    title: "Google Play",
+    image: "assets/google-play-badge.png",
+    url: "/"
+  },
+  {
+    title: "App Store",
+    image: "assets/app-store-badge.png",
+    url: "/"
+  }
+]
+
 const Footer = () => {
   return (
     <section className="Footer">
@@ -60,6 +74,13 @@ const Footer = () => {
           alt="oscarluna"
         />{" "}
         <h6>Copyright &copy; 2022 by Oscar Armando Luna</h6>
+        {
+          downloadLinks.map(link => {
+            <Link to={link.url}>
+            <img src={link.image} alt={link.title} />
+            </Link>
+          })
+        }
       </div>
     </section>
   );

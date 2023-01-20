@@ -35,7 +35,7 @@ const About = () => {
           className="my-5 p-5"
           style={{ fontWeight: "bold", textAlign: "center" }}
         >
-          <img src="images/fade-logo.svg" alt="logo" />
+          <img src="images/fade-logo-alt.png" alt="logo" />
           <br />
           <br />
           <span className="lastLine">Have a nice day !</span>
